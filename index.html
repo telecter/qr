@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js" defer></script>
+    <script src="./main.js" defer></script>
+    <style>
+        #code {
+            display: block;
+            width: 256px;
+            height: 256px;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+    <title>qr</title>
+</head>
+
+<body>
+
+    <header class="container">
+        <hgroup>
+            <h1>qr</h1>
+            <h2>Just a simple qr code generator.</h2>
+        </hgroup>
+    </header>
+    <main class="container">
+        <div id="code"></div>
+        <input type="text" id="codeData" placeholder="Enter URL/Text to embed">
+        <label for="colors">Choose foreground and background colors</label>
+        <div class="grid" id="colors">
+            <input type="color" id="foregroundColorSelecter">
+            <input type="color" id="backgroundColorSelecter">
+        </div>
+    </main>
+</body>
+
+</html>
