@@ -1,30 +1,37 @@
-const dataInput = document.getElementById("codeData");
-const qrCodeElem = document.getElementById("code");
-const foregroundColorSelecter = document.getElementById("foregroundColorSelecter");
-const backgroundColorSelecter = document.getElementById("backgroundColorSelecter");
-foregroundColorSelecter.value = "#000000";
-backgroundColorSelecter.value = "#ffffff";
-
-let foregroundColor = "#000000";
-let backgroundColor = "#ffffff";
+const dataInput = document.getElementById("data");
+const qrCodeContainer = document.getElementById("code");
+const downloadLink = document.getElementById("downloadLink");
+const foregroundColorSelector = document.getElementById("foregroundColor");
+const backgroundColorSelector = document.getElementById("backgroundColor");
+foregroundColorSelector.value = "#000000";
+backgroundColorSelector.value = "#ffffff";
 
 function updateCode() {
-  qrCodeElem.innerText = ""
-  new QRCode(qrCodeElem, {
+  qrCodeContainer.innerHTML = "";
+  new QRCode(qrCodeContainer, {
     text: dataInput.value,
-    colorDark: foregroundColor,
-    colorLight: backgroundColor
+    colorDark: foregroundColorSelector.value,
+    colorLight: backgroundColorSelector.value,
   });
+  console.log(
+    qrCodeContainer.getElementsByTagName("img")[0].getAttribute("src")
+  );
+  console.log(qrCodeContainer.getElementsByTagName("img")[0]);
+  downloadLink.href = qrCodeContainer.getElementsByTagName("img")[0].src;
 }
 
 dataInput.value = "Hello, world!";
+
 dataInput.addEventListener("input", updateCode);
-foregroundColorSelecter.addEventListener("change", (e) => {
-    foregroundColor = e.target.value;
-    updateCode();
-})
-backgroundColorSelecter.addEventListener("change", (e) => {
-    backgroundColor = e.target.value;
-    updateCode();
-})
+foregroundColorSelector.addEventListener("change", updateCode);
+backgroundColorSelector.addEventListener("change", updateCode);
+
+downloadLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  const downloadAnchor = document.createElement("a");
+  downloadAnchor.href = qrCodeContainer.getElementsByTagName("img")[0].src;
+  downloadAnchor.download = "code.png";
+  downloadAnchor.click();
+});
+
 updateCode();
