@@ -1,37 +1,35 @@
-const dataInput = document.getElementById("data");
-const qrCodeContainer = document.getElementById("code");
-const downloadLink = document.getElementById("downloadLink");
-const foregroundColorSelector = document.getElementById("foregroundColor");
-const backgroundColorSelector = document.getElementById("backgroundColor");
-foregroundColorSelector.value = "#000000";
-backgroundColorSelector.value = "#ffffff";
-
 function updateCode() {
-  qrCodeContainer.innerHTML = "";
-  new QRCode(qrCodeContainer, {
+  container.innerHTML = "";
+  new QRCode(container, {
     text: dataInput.value,
-    colorDark: foregroundColorSelector.value,
-    colorLight: backgroundColorSelector.value,
+    colorDark: fgColorSelector.value,
+    colorLight: bgColorSelector.value,
   });
-  console.log(
-    qrCodeContainer.getElementsByTagName("img")[0].getAttribute("src")
-  );
-  console.log(qrCodeContainer.getElementsByTagName("img")[0]);
-  downloadLink.href = qrCodeContainer.getElementsByTagName("img")[0].src;
 }
 
-dataInput.value = "Hello, world!";
 
-dataInput.addEventListener("input", updateCode);
-foregroundColorSelector.addEventListener("change", updateCode);
-backgroundColorSelector.addEventListener("change", updateCode);
+const dataInput = document.getElementById("data");
+const link = document.getElementById("download-link");
+const container = document.getElementById("code");
+const fgColorSelector = document.getElementById("fg-color");
+const bgColorSelector = document.getElementById("bg-color");
 
-downloadLink.addEventListener("click", (e) => {
+
+dataInput.oninput = updateCode;
+fgColorSelector.onchange = updateCode;
+bgColorSelector.onchange = updateCode;
+
+link.onclick = (e) => {
   e.preventDefault();
-  const downloadAnchor = document.createElement("a");
-  downloadAnchor.href = qrCodeContainer.getElementsByTagName("img")[0].src;
-  downloadAnchor.download = "code.png";
-  downloadAnchor.click();
-});
+  const anchor = document.createElement("a");
+  anchor.href = container.getElementsByTagName("img")[0].src;
+  anchor.download = "code.png";
+  anchor.click();
+};
+
+document.getElementById("template-wifi").onclick = () => {
+  dataInput.value = "WIFI:S:<SSID>;T:<WEP|WPA|blank>;P:<PASSWORD>;;"
+  updateCode();
+}
 
 updateCode();

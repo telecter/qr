@@ -9,3 +9,7 @@
 #code > img {
   border-radius: 0.5rem;
 }
+
+a {
+  cursor: pointer;
+}

@@ -8,6 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
     <link rel="stylesheet" href="./main.css" />
+    <link rel="icon" href="./favicon.png">
     <script
       src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"
       defer
@@ -25,13 +26,14 @@
     </header>
     <main class="container">
       <div id="code"></div>
-      <p><a id="downloadLink" download="code.png">Download</a></p>
+      <p><a id="download-link">Download</a></p>
       <article>
-        <input type="text" id="data" placeholder="Enter URL/Text to embed" />
-        <label for="colors">Choose foreground and background colors</label>
+        <input type="text" id="data" placeholder="Enter URL/Text to embed" value="Hello, world!" />
+        <small>Template: <a id="template-wifi">Wifi Network</a></small>
+        <label for="colors">Choose foreground and background colors:</label>
         <div class="grid" id="colors">
-          <input type="color" id="foregroundColor" />
-          <input type="color" id="backgroundColor" />
+          <input type="color" id="fg-color" value="#000000" />
+          <input type="color" id="bg-color" value="#ffffff" />
         </div>
       </article>
     </main>
