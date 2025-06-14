@@ -7,13 +7,11 @@ function updateCode() {
   });
 }
 
-
 const dataInput = document.getElementById("data");
 const link = document.getElementById("download-link");
 const container = document.getElementById("code");
 const fgColorSelector = document.getElementById("fg-color");
 const bgColorSelector = document.getElementById("bg-color");
-
 
 dataInput.oninput = updateCode;
 fgColorSelector.onchange = updateCode;
@@ -28,8 +26,15 @@ link.onclick = (e) => {
 };
 
 document.getElementById("template-wifi").onclick = () => {
-  dataInput.value = "WIFI:S:<SSID>;T:<WEP|WPA|blank>;P:<PASSWORD>;;"
+  dataInput.value = "WIFI:S:<SSID>;T:<WEP|WPA|blank>;P:<PASSWORD>;;";
   updateCode();
-}
+};
+
+document.getElementById("reset").onclick = () => {
+  dataInput.value = dataInput.defaultValue;
+  fgColorSelector.value = fgColorSelector.defaultValue;
+  bgColorSelector.value = bgColorSelector.defaultValue;
+  updateCode();
+};
 
 updateCode();
