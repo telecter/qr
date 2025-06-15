@@ -1,4 +1,4 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "qr"
 compatibility_date = "2025-06-15"
-assets = { directory = "./src" }
+assets = { directory = "./qr" }
