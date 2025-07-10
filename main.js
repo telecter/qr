@@ -26,8 +26,14 @@ link.onclick = (e) => {
 };
 
 document.getElementById("template-wifi").onclick = () => {
-  dataInput.value = "WIFI:S:<SSID>;T:<WEP|WPA|blank>;P:<PASSWORD>;;";
+  document.getElementById("wifi-modal").showModal();
+};
+
+document.getElementById("wifi-modal-form").onsubmit = (e) => {
+  dataInput.value = `WIFI:S:${e.target["ssid"].value};T:${e.target["type"].value};P:${e.target["password"].value};;`;
   updateCode();
+  document.getElementById("wifi-modal").close();
+  return false;
 };
 
 document.getElementById("reset").onclick = () => {

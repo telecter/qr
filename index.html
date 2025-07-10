@@ -1,42 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    />
-    <link rel="stylesheet" href="./main.css" />
-    <link rel="icon" href="./favicon.png">
-    <script
-      src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"
-      defer
-    ></script>
-    <script src="./main.js" defer></script>
-    <title>qr</title>
-  </head>
 
-  <body>
-    <header class="container">
-      <hgroup>
-        <h1>qr</h1>
-        <h2>Just a simple QR code generator.</h2>
-      </hgroup>
-    </header>
-    <main class="container">
-      <div id="code"></div>
-      <p><a id="download-link">Download</a> &#8226; <a id="reset">Reset</a></p>
-      <article>
-        <input type="text" id="data" placeholder="Enter URL/Text to embed" value="Hello, world!" />
-        <small>Template: <a id="template-wifi">Wifi Network</a></small>
-        <label for="colors">Choose foreground and background colors:</label>
-        <div class="grid" id="colors">
-          <input type="color" id="fg-color" defaultValue="#000000" />
-          <input type="color" id="bg-color" value="#ffffff" />
-        </div>
-      </article>
-      <small><a href="/">telecter.xyz</a></small>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+  <link rel="stylesheet" href="./main.css" />
+  <link rel="icon" href="./favicon.png" />
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js" defer></script>
+  <script src="./main.js" defer></script>
+  <title>qr</title>
+</head>
+
+<body>
+  <header class="container">
+    <hgroup>
+      <h1>qr</h1>
+      <h2>Just a simple QR code generator.</h2>
+    </hgroup>
+  </header>
+  <main class="container">
+    <div id="code"></div>
+    <p><a id="download-link">Download</a> &#8226; <a id="reset">Reset</a></p>
+    <article>
+      <input type="text" id="data" placeholder="Enter URL/Text to embed" value="Hello, world!" />
+      <small>Template: <a id="template-wifi">Wifi Network</a></small>
+      <label for="colors">Choose foreground and background colors:</label>
+      <div class="grid" id="colors">
+        <input type="color" id="fg-color" value="#000000" defaultValue="#000000" />
+        <input type="color" id="bg-color" value="#ffffff" defaultValue="#ffaaaa" />
+      </div>
+    </article>
+    <small><a href="/">telecter.xyz</a> &#x2022; <a id="why"
+        onclick="document.getElementById('why-modal').showModal()">Why?</a></small>
+  </main>
+  <dialog id="wifi-modal">
+    <article>
+      <header>
+        <hgroup>
+          <h3>Template</h3>
+          <h4>Wifi Network</h4>
+        </hgroup>
+      </header>
+      <form id="wifi-modal-form">
+        <input type="text" name="ssid" placeholder="SSID" required />
+        <input type="password" name="password" placeholder="Password" />
+        <select name="type">
+          <option value="WEP">WEP</option>
+          <option value="WPA" selected>WPA</option>
+          <option value="nopass">None</option>
+        </select>
+        <button>Add</button>
+        <button class="secondary" type="button" onclick="this.closest('dialog').close()">
+          Cancel
+        </button>
+      </form>
+    </article>
+  </dialog>
+  <dialog id="why-modal">
+    <article>
+      <header>
+        <button rel="prev" onclick="this.closest('dialog').close()"></button>
+        <h3>Why?</h3>
+
+      </header>
+      <p>
+        I made this because many other QR code creators added annoying redirect links or seemingly forced me to make an
+        account.
+        <hr>
+        Please let me know of any bugs or improvements I could make!
+      </p>
+    </article>
+  </dialog>
+</body>
+
 </html>
