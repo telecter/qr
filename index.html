@@ -2,11 +2,14 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-  <link rel="stylesheet" href="./main.css" />
-  <link rel="icon" href="./favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Just a simple QR code generator.">
+  <meta name="author" content="telecter">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="./main.css">
+  <link rel="icon" href="./favicon.png">
   <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js" defer></script>
   <script src="./main.js" defer></script>
   <title>qr</title>
@@ -23,12 +26,12 @@
     <div id="code"></div>
     <p><a id="download-link">Download</a> &#8226; <a id="reset">Reset</a></p>
     <article>
-      <input type="text" id="data" placeholder="Enter URL/Text to embed" value="Hello, world!" />
+      <input type="text" id="data" placeholder="Enter URL/Text to embed" value="Hello, world!">
       <small>Template: <a id="template-wifi">Wifi Network</a></small>
       <label for="colors">Choose foreground and background colors:</label>
       <div class="grid" id="colors">
-        <input type="color" id="fg-color" value="#000000" defaultValue="#000000" />
-        <input type="color" id="bg-color" value="#ffffff" defaultValue="#ffaaaa" />
+        <input type="color" id="fg-color" value="#000000" defaultValue="#000000">
+        <input type="color" id="bg-color" value="#ffffff" defaultValue="#ffaaaa">
       </div>
     </article>
     <small><a href="/">telecter.xyz</a> &#x2022; <a id="why"
@@ -43,8 +46,8 @@
         </hgroup>
       </header>
       <form id="wifi-modal-form">
-        <input type="text" name="ssid" placeholder="SSID" required />
-        <input type="password" name="password" placeholder="Password" />
+        <input type="text" name="ssid" placeholder="SSID" required>
+        <input type="password" name="password" placeholder="Password">
         <select name="type">
           <option value="WEP">WEP</option>
           <option value="WPA" selected>WPA</option>
@@ -69,6 +72,9 @@
         account.
         <hr>
         Please let me know of any bugs or improvements I could make!
+      </p>
+      <p>
+        <strong>GitHub:</strong> <a href="https://github.com/telecter/qr">telecter/qr</a>
       </p>
     </article>
   </dialog>
