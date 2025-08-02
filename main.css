@@ -13,3 +13,8 @@
 a {
   cursor: pointer;
 }
+
+.secondary-text {
+  font-size: 0.75rem;
+  color: var(--pico-muted-color);
+}
