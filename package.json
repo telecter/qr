@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build --outDir ./dist/qr",
+    "build": "vite build && mkdir -p dist/qr; mv dist/index.html dist/assets dist/qr/",
     "preview": "npm run build && vite preview",
     "deploy": "npm run build && wrangler deploy"
   },
