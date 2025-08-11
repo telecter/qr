@@ -1,4 +1,5 @@
-# qr
-Just a simple qr code generator.
+# <img src="favicon.png" width="40px" style="vertical-align: -0.375em"> qr
 
-You can configure the foreground and background colors of the code as well.
+Just a simple QR code generator.
+
+You can input text, URLs, and Wi-Fi networks. You can also configure the foreground and background colors of the code.
