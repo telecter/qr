@@ -1,12 +1,5 @@
-#code {
-  display: block;
-  width: 256px;
-  height: 256px;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
 
-#code > img {
+#code {
   border-radius: 0.5rem;
 }
 

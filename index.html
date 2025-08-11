@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Just a simple QR code generator.">
+    <meta name="author" content="telecter">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="icon" href="./favicon.png">
+    <script src="./src/main.ts" type="module"></script>
+    <title>qr | Easily generate QR codes</title>
+</head>
+
+<body>
+    <header class="container">
+        <hgroup>
+            <h1>qr</h1>
+            <h2>Just a simple QR code generator.</h2>
+        </hgroup>
+    </header>
+    <main class="container">
+        <img id="code"></img>
+        <p><a id="download-link">Download</a> &#8226; <a id="reset">Reset</a></p>
+        <article>
+            <input type="text" id="data" placeholder="Enter URL/Text to embed" value="Hello, world!">
+            <small>Template: <a id="template-wifi">Wi-Fi Network</a></small>
+
+            <label for="colors">Choose foreground and background colors:</label>
+            <div class="grid" id="colors">
+                <input type="color" id="fg-color" value="#000000">
+                <input type="color" id="bg-color" value="#ffffff">
+            </div>
+            <small class="secondary-text">Ensure there is enough contrast between colors to avoid scanning
+                issues.</small>
+        </article>
+        <small><a href="/">telecter.xyz</a> &#x2022; <a
+                onclick="document.getElementById('about-modal').showModal()">About</a></small>
+    </main>
+    <dialog id="wifi-modal">
+        <article>
+            <header>
+                <hgroup>
+                    <h3>Template</h3>
+                    <h4>Wi-Fi Network</h4>
+                </hgroup>
+            </header>
+            <form id="wifi-modal-form">
+                <input type="text" name="ssid" placeholder="SSID" required>
+                <input type="password" name="password" placeholder="Password">
+                <select name="type">
+                    <option value="WEP">WEP</option>
+                    <option value="WPA" selected>WPA</option>
+                    <option value="nopass">None</option>
+                </select>
+                <button>Add</button>
+                <button class="secondary" type="button" onclick="this.closest('dialog').close()">
+                    Cancel
+                </button>
+            </form>
+        </article>
+    </dialog>
+    <dialog id="about-modal">
+        <article>
+            <header>
+                <button rel="prev" onclick="this.closest('dialog').close()"></button>
+                <h3>About</h3>
+
+            </header>
+            <h5>Why make this?</h5>
+            <p>
+                I made this because many other QR code creators added annoying tracking links or seemingly forced me to
+                make an
+                account.
+                <hr>
+                Please let me know of any bugs or improvements I could make!
+            </p>
+            <p>
+                <strong>GitHub:</strong> <a href="https://github.com/telecter/qr">telecter/qr</a>
+            </p>
+            <p><strong>Code generation with:</strong> <a
+                    href="https://github.com/soldair/node-qrcode">soldair/node-qrcode</a>
+            </p>
+        </article>
+    </dialog>
+</body>
+
+</html>

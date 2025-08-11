@@ -1,10 +1,9 @@
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "qr",
   "compatibility_date": "2025-08-09",
   "assets": {
-    "directory": "./src",
-    "not_found_handling": "none",
-    "html_handling": "auto-trailing-slash"
+    "not_found_handling": "single-page-application"
   },
   "routes": [
     {
