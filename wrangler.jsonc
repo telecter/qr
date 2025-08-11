@@ -3,7 +3,7 @@
   "name": "qr",
   "compatibility_date": "2025-08-09",
   "assets": {
-    "not_found_handling": "single-page-application"
+    "directory": "./dist"
   },
   "routes": [
     {
